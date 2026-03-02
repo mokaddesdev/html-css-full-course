@@ -1,0 +1,148 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.slider-area{
+    height: 550px;
+    /* background-image: url("./images/bg1.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #e3d9ce;
+    background-position: top; */
+
+    /* short hand */
+    background: url("./images/bg1.jpeg") no-repeat #e3d9ce top/cover;
+}
+.container{
+    width: 80%;
+    margin: 0 auto;
+}
+
+.slider-wrapper{
+    padding: 130px 0px;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+}
+.slider-wrapper h1{
+    padding: 20px 0px;
+    color: black;
+    font-size: 35px;
+    font-weight: 700;
+}
+
+.slider-wrapper p{
+    padding: 10px 0px 30px 0px;
+    font-size: 22px;
+    font-weight: 400;
+    /* letter-spacing: 1px;
+    word-spacing: normal; */
+}
+
+.slider-wrapper button{
+    font-size: 17px;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid #333f;
+    background: none;
+    text-transform: capitalize;
+    font-weight: 500;
+}
+
+.service-quality-area{
+    padding: 70px 0px;
+}
+.signle-service-quality {
+    width: 250px;
+    display: inline-block;
+    border: 1px solid #f33;
+    padding: 20px;
+    border-radius: 10px 30px;
+    margin: 10px;
+}
+
+.section-title h2 {
+    /* text-align: center; */
+    padding: 15px 0px;
+}
+
+.section-title {
+    width: 65%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 40px 0px;
+}
+
+.header-area{
+    height: 90px;
+    background-color: #e3d9ce;
+}
+.header.wrapper {
+    height: 90px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav.menu ul {
+    list-style: none;
+    display: flex;
+    align-items:center;
+    padding: 0;
+    margin: 0;
+}
+
+nav.menu li a {
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 400;
+    color: coral;
+    padding: 0px 20px;
+}
+.header-btn button {
+    padding: 14px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+section.popular-destination {
+    /* text-align: center; */
+}
+
+section.popular-destination {
+    padding: 20px opx;
+    margin: 30px 0px;
+}
+
+.popular-destination-title {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 40%;
+    margin: 0 auto;
+    gap: 10px;
+}
+
+.popular-destination-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 271px;
+}
+
+.single-destination {
+    /* display: flex; */
+    /* width: 100%; */
+}
+
+.single-destination img {
+    width: 200px;
+    border-radius: 20px;
+    border: 1px dotted #f33;
+    padding: 5px;
+}

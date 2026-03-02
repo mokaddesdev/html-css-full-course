@@ -1,9 +1,10 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
-:root{
+
+:root {
     --color-bg-primary: #ffffff;
     --color-primary: #212121;
     --color-secondary: #5c5c5b;
@@ -13,10 +14,10 @@
     --color-surface-light: #f5f8fd;
 
     --color-white: #ffffff;
-    --font-heading: "Oswald", sans-serif;
+    --font-oswald: "Oswald", sans-serif;
 }
 
-body{
+body {
     padding: 0;
     margin: 0;
     min-height: 100vh;
@@ -28,20 +29,26 @@ body{
     /* overflow: hidden; */
 }
 
-.main{
-     width: 1920px;
-     min-height: 100vh;
-     margin: auto;
+.main {
+    width: 1920px;
+    min-height: 100vh;
+    margin: auto;
     background-color: var(--color-bg-primary);
 }
-ul,ol{
+
+ul,
+ol {
     list-style: none;
 }
-a{
+
+a {
     text-decoration: none;
     color: inherit;
 }
-img, video, svg{
+
+img,
+video,
+svg {
     display: block;
     max-width: 100%;
 }
@@ -60,7 +67,12 @@ button {
     cursor: pointer;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-weight: inherit;
     font-size: inherit;
 }
@@ -68,8 +80,173 @@ h1, h2, h3, h4, h5, h6 {
 p {
     margin: 0;
 }
-.container{
-    max-width: 1259px;
+
+.container {
+    max-width: 1269px;
     padding: 0px 18px;
     margin: auto;
+}
+
+.header-area {
+    margin: 0;
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    background-color: var(--color-bg-primary);
+    position: relative;
+}
+
+.header-area .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-area .logo {
+    width: 150px;
+    height: 73px;
+    aspect-ratio: 150/73;
+}
+
+.nav-area {
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-area ul {
+    display: flex;
+    align-items: center;
+    gap: 43.12px;
+    color: #212121;
+    font-family: var(--font-oswald);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 28px;
+    text-transform: capitalize;
+}
+
+.header-end {
+    width: 20%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-end .contact-btn {
+    display: flex;
+    width: 181.91px;
+    height: 57px;
+    padding: 0 49.674px 0 50px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+    background: #FFC222;
+    color: #FFF;
+    text-align: center;
+    font-family: var(--font-oswald);
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 17px;
+    letter-spacing: 0.8px;
+    text-transform: capitalize;
+}
+.cart-btn{
+    display: flex;
+    align-items: center;
+    width: 80px;
+}
+
+.cart-btn i{
+    color: #00a149;
+    width: 60px;
+}
+
+.cart-numb{
+    color: #212121;
+    font-family: var(--font-oswald);
+}
+
+.divider-btn {
+    width: 120px;
+    height: 18px;
+}
+
+/* Banner area design */
+.banner-area{
+    margin-top: 45px;
+    height: 833px;
+}
+
+.single-banner{
+    padding: 60px 0px;
+    background-image: url("../images/Section.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.banner-area .container{
+    padding: 0px -60px;
+}
+
+.banner-description{
+    padding: 90px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+}
+
+.banner-description h2{
+    color: #FFC222;
+font-family: var(--font-oswald);
+width: 187.155px;
+font-size: 20px;
+font-style: normal;
+font-weight: 600;
+line-height: 28px; /* 140% */
+text-transform: capitalize;
+}
+
+.banner-description h3{
+    width: 424.56px;
+    color: #FFF;
+font-family: var(--font-oswald);
+font-size: 100px;
+font-style: normal;
+font-weight: 600;
+line-height: 105px; /* 105% */
+text-transform: uppercase;
+}
+
+.banner-description p{
+    color: #FFF;
+font-family: Oswald;
+font-size: 28px;
+font-style: normal;
+font-weight: 700;
+line-height: 36.4px; /* 130% */
+text-transform: capitalize;
+}
+
+.order-btn{
+    display: flex;
+width: 212.3px;
+padding: 20px 49.577px 21px 50px;
+justify-content: center;
+align-items: flex-end;
+gap: 10px;
+border-radius: 9px;
+background: #EE284B;
+color: #FFF;
+text-align: center;
+font-family: Oswald;
+font-size: 17px;
+font-style: normal;
+font-weight: 600;
+line-height: 17px; /* 100% */
+letter-spacing: 0.8px;
+text-transform: capitalize;
 }
