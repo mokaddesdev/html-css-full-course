@@ -19,9 +19,9 @@
                     <i class="fa-solid fa-basket-shopping"><sup class="cart-numb">2</sup></i>
                 </button>
                 <button class="contact-btn">Contact Us</button>
-                <button class="divider-btn">
+                <!-- <button class="divider-btn">
                     <i class="fa-solid fa-list-ul"></i>
-                </button>
+                </button> -->
             </div>
     </div>
 </header>
