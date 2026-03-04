@@ -20,113 +20,6 @@
     <main class="main">
     <?php include_once('./sections/header.php'); ?>
     <?php include_once('./sections/banner.php'); ?>
-    <style>
-        .popular-foods{
-            padding: 114px 0px 120px 0px;
-            height: auto;
-            background-color: #F5F8FD;
-        }
-        .popular-foods .container{
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            gap: 40px;
-        }
-        .section-description{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .left-text h2{
-            color: #00A149;
-font-family: Oswald;
-font-size: 17px;
-font-style: normal;
-font-weight: 700;
-line-height: 28px; /* 164.706% */
-text-transform: capitalize;
-        }
-
-        .left-text p{
-            color: #212121;
-font-family: Oswald;
-font-size: 60px;
-font-style: normal;
-font-weight: 700;
-line-height: 67.2px; /* 112% */
-text-transform: capitalize;
-        }
-
-        .popular-food-wrapper{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .single-food-cart{
-    width: 300px;
-    height: 394px;
-    background-image: url("./assets/images/cart-bg.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: lightgray;
-    padding: 49px;
-border: #00A149;
-position: relative;
-        }
-
-        .cart-body{
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .cart-divider{
-            width: 53px;
-height: 2px;
-background: #FFC222;
-        }
-
-        .cart-body h2{
-            color: #212121;
-text-align: center;
-font-family: Oswald;
-font-size: 28px;
-font-style: normal;
-font-weight: 700;
-line-height: 36.4px;
-text-transform: capitalize;
-        }
-
-.cart-body p{
-    color: #FFC222;
-text-align: center;
-font-family: Oswald;
-font-size: 17px;
-font-style: normal;
-font-weight: 600;
-line-height: 28px;
-text-transform: capitalize;
-}
-
-.cart-image{
-    height: 210px;
-    padding: 10px;
-}
-
-.preview-btn i{
-    color: #FFC222;
-}
-.next-btn i{
-    color: #00A149;
-}
-
-    </style>
     <section class="popular-foods">
         <div class="container">
             <!-- section-description -->
@@ -192,6 +85,9 @@ text-transform: capitalize;
                 </div>
 
              </div>
+        </div>
+        <div class="background-shape">
+            <img src="./assets/images/burger-shape.png" alt="">
         </div>
     </section>
     </main>

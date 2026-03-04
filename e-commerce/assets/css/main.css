@@ -214,17 +214,17 @@ font-family: var(--font-oswald);
 font-size: 60px;
 font-style: normal;
 font-weight: 600;
-line-height: 85px; /* 105% */
+line-height: 85px;
 text-transform: uppercase;
 }
 
 .banner-description p{
     color: #FFF;
-font-family: Oswald;
+font-family: var(--font-oswald);
 font-size: 28px;
 font-style: normal;
 font-weight: 700;
-line-height: 36.4px; /* 130% */
+line-height: 36.4px;
 text-transform: capitalize;
 }
 
@@ -243,7 +243,7 @@ font-family: Oswald;
 font-size: 17px;
 font-style: normal;
 font-weight: 600;
-line-height: 17px; /* 100% */
+line-height: 17px;
 letter-spacing: 0.8px;
 text-transform: capitalize;
 }
@@ -278,4 +278,137 @@ text-transform: capitalize;
   border-radius: 50%;
   cursor: pointer;
   border: 1px solid gray !important;
+}
+
+/* popular food section */
+ .popular-foods{
+            padding: 114px 0px 120px 0px;
+            background-color: #F5F8FD;
+            position: relative;
+            height: 850px;
+        }
+        .popular-foods .container{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .background-shape{
+            position: absolute;
+            left: 50px;
+            bottom: 40px;
+            z-index: 100;
+        }
+        .section-description{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .left-text h2{
+            color: #00A149;
+font-family: var(--font-oswald);
+font-size: 17px;
+font-style: normal;
+font-weight: 700;
+line-height: 28px;
+text-transform: capitalize;
+        }
+
+        .left-text p{
+            color: #212121;
+font-family: var(--font-oswald);
+font-size: 60px;
+font-style: normal;
+font-weight: 700;
+line-height: 67.2px;
+text-transform: capitalize;
+        }
+
+        .popular-food-wrapper{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .single-food-cart{
+    width: 300px;
+    height: 394px;
+    background-image: url("../images/cart-bg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: lightgray;
+    padding: 49px;
+border: #00A149;
+position: relative;
+        }
+
+        .cart-body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cart-divider{
+            width: 53px;
+height: 2px;
+background: #FFC222;
+        }
+
+        .cart-body h2{
+            color: #212121;
+text-align: center;
+font-family: Oswald;
+font-size: 28px;
+font-style: normal;
+font-weight: 700;
+line-height: 36.4px;
+text-transform: capitalize;
+        }
+
+.cart-body p{
+    color: #FFC222;
+text-align: center;
+font-family: Oswald;
+font-size: 17px;
+font-style: normal;
+font-weight: 600;
+line-height: 28px;
+text-transform: capitalize;
+}
+
+.cart-image{
+    height: 210px;
+    padding: 10px;
+}
+
+.slider-btn{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.preview-btn {
+    color: #FFC222;
+font-size: 17px;
+font-style: normal;
+font-weight: 900;
+line-height: 17px;
+}
+.next-btn{
+    display: flex;
+width: 60px;
+height: 60px;
+padding: 22px 0 21px 0;
+justify-content: center;
+align-items: center;
+border-radius: 60px;
+background: #FFC222;
+box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.06);
+color: white;
 }
