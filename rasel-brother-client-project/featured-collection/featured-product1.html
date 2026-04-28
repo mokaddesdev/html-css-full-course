@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>featured product</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+    </style>
+    <style>
+      button {
+        border: none;
+        outline: none;
+        background: none;
+        cursor: pointer;
+      }
+      :root {
+        --color-primary: #1d1d1d;
+        --color-secondary: #b2adad;
+        --color-tertiary: #4a4646;
+        --color-white: #fff;
+      }
+      .sb-featured-collection-1 h1,
+      .sb-featured-collection-1 h2 {
+        font-family: "Plus Jakarta Sans", sans-serif;
+      }
+      .sb-featured-collection-1 p {
+        font-family: "Plus Jakarta Sans", sans-serif;
+      }
+      .sb-flex {
+        display: flex;
+      }
+      .sb-flex-dir-col {
+        flex-direction: column;
+      }
+      .sb-items-center {
+        align-items: center;
+      }
+      .sb-item-start {
+        align-items: flex-start;
+      }
+      .sb-content-center {
+        justify-content: center;
+      }
+      .sb-gap-1 {
+        gap: 13px;
+      }
+      .sb-featured-collection-1-wrapper {
+        width: 1920px;
+        padding: 80px 0;
+        background: var(--color-white);
+        color: var(--color-primary);
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+      }
+      .sb-featured-collection-1-container {
+        max-width: 1350px;
+        margin: 0 auto;
+      }
+      .sb-featured-collection-single-card {
+        width: 312px;
+      }
+      .sb-card-image {
+        background: #f0efeb;
+        height: 416px;
+        border-radius: 16px;
+        position: relative;
+      }
+      .sb-add-to-btn {
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        z-index: 100;
+        display: flex;
+        height: 40px;
+        padding: 14px 12px;
+        justify-content: space-between;
+        align-items: center;
+        flex-shrink: 0;
+        aspect-ratio: 1/1;
+        border-radius: 14px;
+        background: #fff;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="sb-featured-collection-1-wrapper">
+      <div class="sb-featured-collection-1-container">
+        <div class="sb-featured-collection-1">
+          <!-- single card -->
+          <div
+            class="sb-featured-collection-single-card sb-flex sb-flex-dir-col sb-item-start sb-gap-1"
+          >
+            <div class="sb-card-image">
+              <img src="https://picsum.photos/312/416" alt="" />
+              <!-- add to favourite btn -->
+              <div class="sb-add-to-btn">
+                <button>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="19"
+                    height="16"
+                    fill="none"
+                  >
+                    <path
+                      stroke="#aeaeae"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      d="m11.15 13.575-.81.783a1.667 1.667 0 0 1-2.5.015L3.25 9.93C2 8.68.75 7.263.75 5.347a4.583 4.583 0 0 1 7.993-3.064.467.467 0 0 0 .681 0 4.575 4.575 0 0 1 7.993 3.064c0 .42-.062.839-.183 1.241m-5.65 3.342h5m-2.5-2.5v5"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <div class="sb-card-content">
+              <div class="title">Product Title</div>
+
+              <div class="sb-card-price">
+                <span class="price">$49.00</span>
+                <span class="old-price">$79.00</span>
+              </div>
+
+              <div class="sb-card-desc">
+                This is a short product description goes here.
+              </div>
+
+              <div class="sb-card-rating">
+                <span class="sb-dot"></span>
+                <span class="sb-rating-text">4.8 (120 reviews)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
