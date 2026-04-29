@@ -1,400 +1,735 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>featured product</title>
-    <link rel="stylesheet" href="./default.css">
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
-    </style>
 
-    <style>
-      :root {
-        --color-primary: #1d1d1d;
-        --color-secondary: #b2adad;
-        --color-tertiary: #4a4646;
-        --color-white: #fff;
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>featured collection 1</title>
+  <link rel="stylesheet" href="./default.css">
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+  </style>
+
+  <style>
+    :root {
+      --color-primary: #1d1d1d;
+      --color-secondary: #b2adad;
+      --color-tertiary: #4a4646;
+      --color-white: #fff;
+    }
+
+    /* ====== flex ======= */
+    .sb-flex {
+      display: flex;
+    }
+
+    .sb-inline-flex {
+      display: inline-flex;
+    }
+
+    .sb-flex-col {
+      flex-direction: column;
+    }
+
+    .sb-items-center {
+      align-items: center;
+    }
+
+    .sb-items-start {
+      align-items: flex-start;
+    }
+
+    .sb-justify-between {
+      justify-content: space-between;
+    }
+
+    /* ======= gap ======== */
+    .sb-gap-1 {
+      gap: 13px;
+    }
+
+    .sb-gap-2 {
+      gap: 5px;
+    }
+
+    .sb-gap-3 {
+      gap: 18px 26px;
+    }
+
+    /* ====== grid ======= */
+    .sb-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    /* ====== full width, height ====== */
+    .sb-w-full {
+      width: 100%;
+    }
+
+    /* ====== padding ======= */
+    .sb-pt-1 {
+      padding-top: 5px;
+    }
+
+    /* ===== POSITION ===== */
+    .sb-relative {
+      position: relative;
+    }
+
+    .sb-absolute {
+      position: absolute;
+    }
+
+    /* === featured collection === */
+
+    .sb-featured-collection-1-wrapper {
+      padding: 80px 0;
+      background: var(--color-white);
+      color: var(--color-primary);
+    }
+
+    .sb-featured-collection-1-container {
+      max-width: 1320px;
+      width: 95%;
+      margin: 0 auto;
+    }
+
+    .sb-featured-collection-single-card {
+      /* max-width: 312px; */
+      width: 100%;
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 18px;
+    }
+
+    .sb-card-image {
+      background: #f0efeb;
+      height: 312px;
+      border-radius: 16px;
+    }
+
+    .sb-card-image img {
+      width: 100%;
+      height: 100%;
+      border-radius: 16px;
+    }
+
+    /* shared button base */
+    .sb-add-to-btn-default,
+    .sb-add-to-btn-hover {
+      top: 14px;
+      right: 12px;
+
+      width: 40px;
+      height: 40px;
+      padding: 14px 12px;
+
+      border-radius: 14px;
+      aspect-ratio: 1/1;
+
+      transition: 0.2s ease;
+    }
+
+    /* default button */
+    .sb-add-to-btn-default {
+      background: #fff;
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* hover button */
+    .sb-add-to-btn-hover {
+      background: #4A4646;
+      opacity: 0;
+      transform: scale(0.8);
+      pointer-events: none;
+    }
+
+    /* hover effect */
+    .group:hover .sb-add-to-btn-default {
+      opacity: 0;
+      transform: scale(0.99);
+    }
+
+    .group:hover .sb-add-to-btn-hover {
+      opacity: 1;
+      transform: scale(1);
+      pointer-events: auto;
+    }
+
+    .sb-card-left-info h2 {
+      color: #1D1D1D;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 18px;
+    }
+
+    .sb-product-category {
+      font-weight: 400;
+      font-size: 14px;
+    }
+
+    .sb-card-right-info {
+      margin-top: -8px;
+    }
+
+    .sb-card-dot {
+      text-align: end;
+    }
+
+    .group:hover h2 {
+      cursor: pointer;
+    }
+
+    .group:hover .sb-card-image img {
+      cursor: pointer;
+      transform: scale(1.01);
+      transition: 0.3s;
+    }
+
+    .sb-flex-wrap {
+      flex-wrap: wrap;
+    }
+
+    .sb-slider-handle-arrow-btn {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 200;
+      z-index: 200;
+      padding: 0px 10px;
+    }
+
+    .sb-old-price {
+      color: #B2ADAD;
+      text-decoration-line: line-through;
+    }
+
+    .sb-dots-btns {
+      left: 50%;
+      bottom: 14px;
+      transform: translateX(-50%);
+      z-index: 500;
+    }
+
+    .sb-dots-btns span {
+      display: inline-block;
+    }
+
+    .sb-dot-default-btn {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #aeaeae;
+    }
+
+    .sb-dot-active-btn {
+      width: 20px;
+      height: 6px;
+      border-radius: 198px;
+      background: #181818;
+    }
+
+    /* ====== responsive ======= */
+    /* small tablet */
+    @media (min-width: 500px) {
+      .sb-grid--sm-2 {
+        grid-template-columns: repeat(2, 1fr);
       }
-      .sb-featured-collection-1 h1,
-      .sb-featured-collection-1 h2 {
-        font-family: "Plus Jakarta Sans", sans-serif;
-      }
-      .sb-featured-collection-1 p {
-        font-family: "Plus Jakarta Sans", sans-serif;
-      }
-      .sb-flex {
-        display: flex;
-      }
-      .sb-flex-dir-col {
-        flex-direction: column;
-      }
-      .sb-items-center {
-        align-items: center;
-      }
-      .sb-item-start {
-        align-items: flex-start;
-      }
-      .sb-content-between {
-        justify-content: space-between;
-      }
-      .sb-gap-1 {
-        gap: 13px;
-      }
-      .sb-featured-collection-1-wrapper {
-        width: 1920px;
-        padding: 80px 0;
-        background: var(--color-white);
-        color: var(--color-primary);
-        font-family: "Plus Jakarta Sans", sans-serif;
-        font-size: 14px;
-        font-style: normal;
-        font-weight: 500;
-      }
-      .sb-featured-collection-1-container {
-        max-width: 1350px;
-        width: 1320px;
-        margin: 0 auto;
-      }
-      .sb-featured-collection-1{
-        flex-wrap: wrap;
-      }
-      .sb-featured-collection-single-card {
-        max-width: 312px;
-        width: 100%;
-        height: 100%;
-      }
+
       .sb-card-image {
-        background: #f0efeb;
+        height: 330px;
+      }
+
+    }
+
+    /* tablet */
+    @media (min-width: 900px) {
+
+      .sb-grid--md-3 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .sb-card-image {
+        height: 380px;
+      }
+    }
+
+    /* desktop */
+    @media (min-width: 1400px) {
+      .sb-grid--lg-4 {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .sb-card-image {
         height: 416px;
-        position: relative;
-        border-radius: 16px;
       }
-      .sb-card-image img{
-        border-radius: 16px;
-      }
-      .sb-add-to-btn {
-        position: absolute;
-        top: 10px;
-        right: 20px;
-        z-index: 100;
-        display: flex;
-        height: 40px;
-        padding: 14px 12px;
-        justify-content: space-between;
-        align-items: center;
-        flex-shrink: 0;
-        aspect-ratio: 1/1;
-        border-radius: 14px;
-        background: #fff;
-      }
-      .sb-card-content{
-        width: 100%;
-      }
-    </style>
-  </head>
+    }
+  </style>
+</head>
 
-  <body>
-    <div class="sb-featured-collection-1-wrapper">
-      <div class="sb-featured-collection-1-container">
-        <div class="sb-featured-collection-1 sb-flex sb-gap-1">
-          <!-- single card -->
-          <div class="sb-featured-collection-single-card sb-flex sb-flex-dir-col sb-item-start sb-gap-1 sb-content-between">
-            <div class="sb-card-image">
-              <img src="https://picsum.photos/312/416?random=1" alt="" />
-              <!-- add to favourite btn -->
-              <div class="sb-add-to-btn">
-                <button>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="19" height="16" fill="none"> <path stroke="#aeaeae" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m11.15 13.575-.81.783a1.667 1.667 0 0 1-2.5.015L3.25 9.93C2 8.68.75 7.263.75 5.347a4.583 4.583 0 0 1 7.993-3.064.467.467 0 0 0 .681 0 4.575 4.575 0 0 1 7.993 3.064c0 .42-.062.839-.183 1.241m-5.65 3.342h5m-2.5-2.5v5"/></svg>
-                </button>
+<body>
+  <div class="sb-featured-collection-1-wrapper sb-w-full">
+    <div class="sb-featured-collection-1-container">
+      <div class="sb-featured-collection-1 sb-grid sb-grid--sm-2 sb-grid--md-3 sb-grid--lg-4 sb-gap-3">
+        <!-- single card 1 -->
+        <div class="sb-featured-collection-single-card sb-flex sb-flex-col sb-items-start sb-gap-1 group">
+          <div class="sb-card-image sb-relative sb-w-full">
+            <img src="https://picsum.photos/312/416?random=1" alt="" />
+            <!-- add to favourite btn -->
+            <div class="sb-favourite-btns">
+              <button class="sb-add-to-btn-default sb-absolute">
+                <!-- default icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="16" fill="none">
+                  <path stroke="#aeaeae" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                    d="m11.15 13.575-.81.783a1.667 1.667 0 0 1-2.5.015L3.25 9.93C2 8.68.75 7.263.75 5.347a4.583 4.583 0 0 1 7.993-3.064.467.467 0 0 0 .681 0 4.575 4.575 0 0 1 7.993 3.064c0 .42-.062.839-.183 1.241m-5.65 3.342h5m-2.5-2.5v5" />
+                </svg>
+              </button>
+
+              <button class="sb-add-to-btn-hover sb-absolute">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none">
+                  <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                    d="m12.066 16.145-.809.782a1.666 1.666 0 0 1-2.5.016l-4.59-4.444c-1.25-1.25-2.5-2.666-2.5-4.583a4.583 4.583 0 0 1 7.992-3.063.467.467 0 0 0 .682 0 4.575 4.575 0 0 1 7.993 3.063c0 .42-.062.839-.183 1.242m-5.65 3.342h5M15 10v5" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="sb-card-content sb-w-full sb-flex sb-justify-between">
+            <!-- card left -->
+            <div class="sb-card-left-info">
+              <h2>Handthrown Clay Bowl</h2>
+              <div class="sb-card-price sb-pt-1 sb-flex sb-gap-2">
+                <span class="sb-old-price">$39.00</span>
+                <span class="sb-price">$18.00</span>
               </div>
             </div>
 
-            <div class="sb-card-content sb-flex sb-content-between">
-              <!-- card left -->
-               <div class="sb-card-left-info sb-flex sb-item-start sb-flex-dir-col sb-gap-1">
-                  <h2>Handthrown Clay Bowl</h2>
-                  <div class="sb-card-price">
-                      <span class="price">$49.00</span>
-                      <span class="old-price">$79.00</span>
-                  </div>
-               </div>
-
-              <div class="sb-card-right-info">
-                <div class="sb-card-dot">
-                  <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="none"><circle cx="4" cy="4" r="4" fill="#a67666"/></svg>
-                  </span>
-                  <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="none"><circle cx="4" cy="4" r="4" fill="#c4a882"/></svg>
-                  </span>
-                </div>
-                <h3 class="sb-product-category">
-                  Slate
-                </h3>
+            <div class="sb-card-right-info">
+              <div class="sb-card-dot">
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="none">
+                    <circle cx="4" cy="4" r="4" fill="#a67666" />
+                  </svg>
+                </span>
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="none">
+                    <circle cx="4" cy="4" r="4" fill="#c4a882" />
+                  </svg>
+                </span>
               </div>
-              </div>
+              <h3 class="sb-product-category sb-pt-1">
+                Slate
+              </h3>
+            </div>
           </div>
-           <!-- single card -->
-          <div class="sb-featured-collection-single-card sb-flex sb-flex-dir-col sb-item-start sb-gap-1">
-            <div class="sb-card-image">
-              <img src="https://picsum.photos/312/416?random=2" alt="" />
-              <!-- add to favourite btn -->
-              <div class="sb-add-to-btn">
-                <button>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="19" height="16" fill="none"> <path stroke="#aeaeae" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m11.15 13.575-.81.783a1.667 1.667 0 0 1-2.5.015L3.25 9.93C2 8.68.75 7.263.75 5.347a4.583 4.583 0 0 1 7.993-3.064.467.467 0 0 0 .681 0 4.575 4.575 0 0 1 7.993 3.064c0 .42-.062.839-.183 1.241m-5.65 3.342h5m-2.5-2.5v5"/></svg>
-                </button>
+        </div>
+
+        <!-- single card 2 -->
+        <div class="sb-featured-collection-single-card sb-flex sb-flex-col sb-items-start sb-gap-1 group">
+          <div class="sb-card-image sb-w-full sb-relative">
+            <img src="https://picsum.photos/312/416?random=2" alt="" />
+            <!-- slider dots buttons -->
+            <div class="sb-dots-btns sb-flex sb-items-center sb-gap-1 sb-absolute">
+              <span class="sb-dot-default-btn"></span>
+              <span class="sb-dot-active-btn"></span>
+              <span class="sb-dot-default-btn"></span>
+              <span class="sb-dot-default-btn"></span>
+              <span class="sb-dot-default-btn"></span>
+            </div>
+            <!-- slider hanlde arror button -->
+            <div class="sb-slider-handle-arrow-btn sb-w-full sb-flex sb-justify-between sb-items-center sb-absolute">
+              <span class="sb-left-aroow-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+                  <path stroke="#181818" stroke-linecap="round" stroke-width="2"
+                    d="M6.49 11.5h.01M9.49 15.5h.01M12.49 19.5h.01M12.5 4.5h-.01M9.5 8h-.01" />
+                </svg>
+              </span>
+              <span class="sb-right-arrow-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+                  <path stroke="#181818" stroke-linecap="round" stroke-width="2"
+                    d="M17.51 11.5h-.01M14.51 15.5h-.01M11.51 19.5h-.01M11.5 4.5h.01M14.5 8h.01" />
+                </svg>
+              </span>
+            </div>
+            <!-- add to favourite btn -->
+            <div class="sb-favourite-btns">
+              <button class="sb-add-to-btn-default sb-absolute">
+                <!-- default icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="16" fill="none">
+                  <path stroke="#aeaeae" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                    d="m11.15 13.575-.81.783a1.667 1.667 0 0 1-2.5.015L3.25 9.93C2 8.68.75 7.263.75 5.347a4.583 4.583 0 0 1 7.993-3.064.467.467 0 0 0 .681 0 4.575 4.575 0 0 1 7.993 3.064c0 .42-.062.839-.183 1.241m-5.65 3.342h5m-2.5-2.5v5" />
+                </svg>
+              </button>
+
+              <button class="sb-add-to-btn-hover sb-absolute">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none">
+                  <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                    d="m12.066 16.145-.809.782a1.666 1.666 0 0 1-2.5.016l-4.59-4.444c-1.25-1.25-2.5-2.666-2.5-4.583a4.583 4.583 0 0 1 7.992-3.063.467.467 0 0 0 .682 0 4.575 4.575 0 0 1 7.993 3.063c0 .42-.062.839-.183 1.242m-5.65 3.342h5M15 10v5" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="sb-card-content sb-w-full sb-flex sb-justify-between">
+            <!-- card left -->
+            <div class="sb-card-left-info">
+              <h2>Handthrown Clay Bowl</h2>
+              <div class="sb-card-price sb-pt-1 sb-flex sb-gap-2">
+                <style>
+                  .sb-old-price {
+                    color: #B2ADAD;
+                    text-decoration-line: line-through;
+                  }
+                </style>
+                <span class="sb-old-price">$39.00</span>
+                <span class="sb-price">$18.00</span>
               </div>
             </div>
 
-            <div class="sb-card-content">
-              <!-- card left -->
-               <div class="sb-card-left-info">
-                  <h2>Handthrown Clay Bowl</h2>
-                  <div class="sb-card-price">
-                      <span class="price">$49.00</span>
-                      <span class="old-price">$79.00</span>
-                  </div>
-               </div>
-
-              <div class="sb-card-right-info">
-                <div class="sb-card-dot">
-                  <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="none"><circle cx="4" cy="4" r="4" fill="#a67666"/></svg>
-                  </span>
-                  <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="none"><circle cx="4" cy="4" r="4" fill="#c4a882"/></svg>
-                  </span>
-                </div>
-                <h3 class="sb-product-category">
-                  Slate
-                </h3>
+            <div class="sb-card-right-info">
+              <div class="sb-card-dot">
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="none">
+                    <circle cx="4" cy="4" r="4" fill="#a67666" />
+                  </svg>
+                </span>
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="none">
+                    <circle cx="4" cy="4" r="4" fill="#c4a882" />
+                  </svg>
+                </span>
               </div>
+              <h3 class="sb-product-category sb-pt-1">
+                Slate
+              </h3>
+            </div>
           </div>
+        </div>
+
+        <!-- single card 3 -->
+        <div class="sb-featured-collection-single-card sb-flex sb-flex-col sb-items-start sb-gap-1 group">
+          <div class="sb-card-image sb-w-full sb-relative">
+            <img src="https://picsum.photos/312/416?random=3" alt="" />
+            <!-- add to favourite btn -->
+            <div class="sb-favourite-btns">
+              <button class="sb-add-to-btn-default sb-absolute">
+                <!-- default icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="16" fill="none">
+                  <path stroke="#aeaeae" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                    d="m11.15 13.575-.81.783a1.667 1.667 0 0 1-2.5.015L3.25 9.93C2 8.68.75 7.263.75 5.347a4.583 4.583 0 0 1 7.993-3.064.467.467 0 0 0 .681 0 4.575 4.575 0 0 1 7.993 3.064c0 .42-.062.839-.183 1.241m-5.65 3.342h5m-2.5-2.5v5" />
+                </svg>
+              </button>
+
+              <button class="sb-add-to-btn-hover sb-absolute">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none">
+                  <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                    d="m12.066 16.145-.809.782a1.666 1.666 0 0 1-2.5.016l-4.59-4.444c-1.25-1.25-2.5-2.666-2.5-4.583a4.583 4.583 0 0 1 7.992-3.063.467.467 0 0 0 .682 0 4.575 4.575 0 0 1 7.993 3.063c0 .42-.062.839-.183 1.242m-5.65 3.342h5M15 10v5" />
+                </svg>
+              </button>
+            </div>
           </div>
-           <!-- single card -->
-          <div class="sb-featured-collection-single-card sb-flex sb-flex-dir-col sb-item-start sb-gap-1">
-            <div class="sb-card-image">
-              <img src="https://picsum.photos/312/416?random=3" alt="" />
-              <!-- add to favourite btn -->
-              <div class="sb-add-to-btn">
-                <button>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="19" height="16" fill="none"> <path stroke="#aeaeae" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m11.15 13.575-.81.783a1.667 1.667 0 0 1-2.5.015L3.25 9.93C2 8.68.75 7.263.75 5.347a4.583 4.583 0 0 1 7.993-3.064.467.467 0 0 0 .681 0 4.575 4.575 0 0 1 7.993 3.064c0 .42-.062.839-.183 1.241m-5.65 3.342h5m-2.5-2.5v5"/></svg>
-                </button>
+
+          <div class="sb-card-content sb-w-full sb-flex sb-justify-between">
+            <!-- card left -->
+            <div class="sb-card-left-info">
+              <h2>Handthrown Clay Bowl</h2>
+              <div class="sb-card-price sb-pt-1 sb-flex sb-gap-2">
+                <span class="sb-old-price">$39.00</span>
+                <span class="sb-price">$18.00</span>
               </div>
             </div>
 
-            <div class="sb-card-content">
-              <!-- card left -->
-               <div class="sb-card-left-info">
-                  <h2>Handthrown Clay Bowl</h2>
-                  <div class="sb-card-price">
-                      <span class="price">$49.00</span>
-                      <span class="old-price">$79.00</span>
-                  </div>
-               </div>
-
-              <div class="sb-card-right-info">
-                <div class="sb-card-dot">
-                  <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="none"><circle cx="4" cy="4" r="4" fill="#a67666"/></svg>
-                  </span>
-                  <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="none"><circle cx="4" cy="4" r="4" fill="#c4a882"/></svg>
-                  </span>
-                </div>
-                <h3 class="sb-product-category">
-                  Slate
-                </h3>
+            <div class="sb-card-right-info">
+              <div class="sb-card-dot">
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="none">
+                    <circle cx="4" cy="4" r="4" fill="#a67666" />
+                  </svg>
+                </span>
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="none">
+                    <circle cx="4" cy="4" r="4" fill="#c4a882" />
+                  </svg>
+                </span>
               </div>
+              <h3 class="sb-product-category sb-pt-1">
+                Slate
+              </h3>
+            </div>
           </div>
+        </div>
+
+        <!-- single card 4 -->
+        <div class="sb-featured-collection-single-card sb-flex sb-flex-col sb-items-start sb-gap-1 group">
+          <div class="sb-card-image sb-w-full sb-relative">
+            <img src="https://picsum.photos/312/416?random=4" alt="" />
+            <!-- add to favourite btn -->
+            <div class="sb-favourite-btns">
+              <button class="sb-add-to-btn-default sb-absolute">
+                <!-- default icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="16" fill="none">
+                  <path stroke="#aeaeae" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                    d="m11.15 13.575-.81.783a1.667 1.667 0 0 1-2.5.015L3.25 9.93C2 8.68.75 7.263.75 5.347a4.583 4.583 0 0 1 7.993-3.064.467.467 0 0 0 .681 0 4.575 4.575 0 0 1 7.993 3.064c0 .42-.062.839-.183 1.241m-5.65 3.342h5m-2.5-2.5v5" />
+                </svg>
+              </button>
+
+              <button class="sb-add-to-btn-hover sb-absolute">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none">
+                  <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                    d="m12.066 16.145-.809.782a1.666 1.666 0 0 1-2.5.016l-4.59-4.444c-1.25-1.25-2.5-2.666-2.5-4.583a4.583 4.583 0 0 1 7.992-3.063.467.467 0 0 0 .682 0 4.575 4.575 0 0 1 7.993 3.063c0 .42-.062.839-.183 1.242m-5.65 3.342h5M15 10v5" />
+                </svg>
+              </button>
+            </div>
           </div>
-           <!-- single card -->
-          <div class="sb-featured-collection-single-card sb-flex sb-flex-dir-col sb-item-start sb-gap-1">
-            <div class="sb-card-image">
-              <img src="https://picsum.photos/312/416?random=4" alt="" />
-              <!-- add to favourite btn -->
-              <div class="sb-add-to-btn">
-                <button>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="19" height="16" fill="none"> <path stroke="#aeaeae" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m11.15 13.575-.81.783a1.667 1.667 0 0 1-2.5.015L3.25 9.93C2 8.68.75 7.263.75 5.347a4.583 4.583 0 0 1 7.993-3.064.467.467 0 0 0 .681 0 4.575 4.575 0 0 1 7.993 3.064c0 .42-.062.839-.183 1.241m-5.65 3.342h5m-2.5-2.5v5"/></svg>
-                </button>
+
+          <div class="sb-card-content sb-w-full sb-flex sb-justify-between">
+            <!-- card left -->
+            <div class="sb-card-left-info">
+              <h2>Handthrown Clay Bowl</h2>
+              <div class="sb-card-price sb-pt-1 sb-flex sb-gap-2">
+                <span class="sb-old-price">$39.00</span>
+                <span class="sb-price">$18.00</span>
               </div>
             </div>
 
-            <div class="sb-card-content">
-              <!-- card left -->
-               <div class="sb-card-left-info">
-                  <h2>Handthrown Clay Bowl</h2>
-                  <div class="sb-card-price">
-                      <span class="price">$49.00</span>
-                      <span class="old-price">$79.00</span>
-                  </div>
-               </div>
-
-              <div class="sb-card-right-info">
-                <div class="sb-card-dot">
-                  <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="none"><circle cx="4" cy="4" r="4" fill="#a67666"/></svg>
-                  </span>
-                  <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="none"><circle cx="4" cy="4" r="4" fill="#c4a882"/></svg>
-                  </span>
-                </div>
-                <h3 class="sb-product-category">
-                  Slate
-                </h3>
+            <div class="sb-card-right-info">
+              <div class="sb-card-dot">
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="none">
+                    <circle cx="4" cy="4" r="4" fill="#a67666" />
+                  </svg>
+                </span>
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="none">
+                    <circle cx="4" cy="4" r="4" fill="#c4a882" />
+                  </svg>
+                </span>
               </div>
+              <h3 class="sb-product-category sb-pt-1">
+                Slate
+              </h3>
+            </div>
           </div>
+        </div>
+
+        <!-- single card 5 -->
+        <div class="sb-featured-collection-single-card sb-flex sb-flex-col sb-items-start sb-gap-1 group">
+          <div class="sb-card-image sb-w-full sb-relative">
+            <img src="https://picsum.photos/312/416?random=5" alt="" />
+            <!-- add to favourite btn -->
+            <div class="sb-favourite-btns">
+              <button class="sb-add-to-btn-default sb-absolute">
+                <!-- default icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="16" fill="none">
+                  <path stroke="#aeaeae" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                    d="m11.15 13.575-.81.783a1.667 1.667 0 0 1-2.5.015L3.25 9.93C2 8.68.75 7.263.75 5.347a4.583 4.583 0 0 1 7.993-3.064.467.467 0 0 0 .681 0 4.575 4.575 0 0 1 7.993 3.064c0 .42-.062.839-.183 1.241m-5.65 3.342h5m-2.5-2.5v5" />
+                </svg>
+              </button>
+
+              <button class="sb-add-to-btn-hover sb-absolute">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none">
+                  <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                    d="m12.066 16.145-.809.782a1.666 1.666 0 0 1-2.5.016l-4.59-4.444c-1.25-1.25-2.5-2.666-2.5-4.583a4.583 4.583 0 0 1 7.992-3.063.467.467 0 0 0 .682 0 4.575 4.575 0 0 1 7.993 3.063c0 .42-.062.839-.183 1.242m-5.65 3.342h5M15 10v5" />
+                </svg>
+              </button>
+            </div>
           </div>
-           <!-- single card -->
-          <div class="sb-featured-collection-single-card sb-flex sb-flex-dir-col sb-item-start sb-gap-1">
-            <div class="sb-card-image">
-              <img src="https://picsum.photos/312/416?random=5" alt="" />
-              <!-- add to favourite btn -->
-              <div class="sb-add-to-btn">
-                <button>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="19" height="16" fill="none"> <path stroke="#aeaeae" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m11.15 13.575-.81.783a1.667 1.667 0 0 1-2.5.015L3.25 9.93C2 8.68.75 7.263.75 5.347a4.583 4.583 0 0 1 7.993-3.064.467.467 0 0 0 .681 0 4.575 4.575 0 0 1 7.993 3.064c0 .42-.062.839-.183 1.241m-5.65 3.342h5m-2.5-2.5v5"/></svg>
-                </button>
+
+          <div class="sb-card-content sb-w-full sb-flex sb-justify-between">
+            <!-- card left -->
+            <div class="sb-card-left-info">
+              <h2>Handthrown Clay Bowl</h2>
+              <div class="sb-card-price sb-pt-1 sb-flex sb-gap-2">
+                <span class="sb-old-price">$39.00</span>
+                <span class="sb-price">$18.00</span>
               </div>
             </div>
 
-            <div class="sb-card-content">
-              <!-- card left -->
-               <div class="sb-card-left-info">
-                  <h2>Handthrown Clay Bowl</h2>
-                  <div class="sb-card-price">
-                      <span class="price">$49.00</span>
-                      <span class="old-price">$79.00</span>
-                  </div>
-               </div>
-
-              <div class="sb-card-right-info">
-                <div class="sb-card-dot">
-                  <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="none"><circle cx="4" cy="4" r="4" fill="#a67666"/></svg>
-                  </span>
-                  <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="none"><circle cx="4" cy="4" r="4" fill="#c4a882"/></svg>
-                  </span>
-                </div>
-                <h3 class="sb-product-category">
-                  Slate
-                </h3>
+            <div class="sb-card-right-info">
+              <div class="sb-card-dot">
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="none">
+                    <circle cx="4" cy="4" r="4" fill="#a67666" />
+                  </svg>
+                </span>
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="none">
+                    <circle cx="4" cy="4" r="4" fill="#c4a882" />
+                  </svg>
+                </span>
               </div>
+              <h3 class="sb-product-category sb-pt-1">
+                Slate
+              </h3>
+            </div>
           </div>
+        </div>
+
+        <!-- single card 6 -->
+        <div class="sb-featured-collection-single-card sb-flex sb-flex-col sb-items-start sb-gap-1 group">
+          <div class="sb-card-image sb-w-full sb-relative">
+            <img src="https://picsum.photos/312/416?random=6" alt="" />
+            <!-- add to favourite btn -->
+            <div class="sb-favourite-btns">
+              <button class="sb-add-to-btn-default sb-absolute">
+                <!-- default icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="16" fill="none">
+                  <path stroke="#aeaeae" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                    d="m11.15 13.575-.81.783a1.667 1.667 0 0 1-2.5.015L3.25 9.93C2 8.68.75 7.263.75 5.347a4.583 4.583 0 0 1 7.993-3.064.467.467 0 0 0 .681 0 4.575 4.575 0 0 1 7.993 3.064c0 .42-.062.839-.183 1.241m-5.65 3.342h5m-2.5-2.5v5" />
+                </svg>
+              </button>
+
+              <button class="sb-add-to-btn-hover sb-absolute">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none">
+                  <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                    d="m12.066 16.145-.809.782a1.666 1.666 0 0 1-2.5.016l-4.59-4.444c-1.25-1.25-2.5-2.666-2.5-4.583a4.583 4.583 0 0 1 7.992-3.063.467.467 0 0 0 .682 0 4.575 4.575 0 0 1 7.993 3.063c0 .42-.062.839-.183 1.242m-5.65 3.342h5M15 10v5" />
+                </svg>
+              </button>
+            </div>
           </div>
-           <!-- single card -->
-          <div class="sb-featured-collection-single-card sb-flex sb-flex-dir-col sb-item-start sb-gap-1">
-            <div class="sb-card-image">
-              <img src="https://picsum.photos/312/416?random=6" alt="" />
-              <!-- add to favourite btn -->
-              <div class="sb-add-to-btn">
-                <button>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="19" height="16" fill="none"> <path stroke="#aeaeae" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m11.15 13.575-.81.783a1.667 1.667 0 0 1-2.5.015L3.25 9.93C2 8.68.75 7.263.75 5.347a4.583 4.583 0 0 1 7.993-3.064.467.467 0 0 0 .681 0 4.575 4.575 0 0 1 7.993 3.064c0 .42-.062.839-.183 1.241m-5.65 3.342h5m-2.5-2.5v5"/></svg>
-                </button>
+
+          <div class="sb-card-content sb-w-full sb-flex sb-justify-between">
+            <!-- card left -->
+            <div class="sb-card-left-info">
+              <h2>Handthrown Clay Bowl</h2>
+              <div class="sb-card-price sb-pt-1 sb-flex sb-gap-2">
+                <span class="sb-old-price">$39.00</span>
+                <span class="sb-price">$18.00</span>
               </div>
             </div>
 
-            <div class="sb-card-content">
-              <!-- card left -->
-               <div class="sb-card-left-info">
-                  <h2>Handthrown Clay Bowl</h2>
-                  <div class="sb-card-price">
-                      <span class="price">$49.00</span>
-                      <span class="old-price">$79.00</span>
-                  </div>
-               </div>
-
-              <div class="sb-card-right-info">
-                <div class="sb-card-dot">
-                  <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="none"><circle cx="4" cy="4" r="4" fill="#a67666"/></svg>
-                  </span>
-                  <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="none"><circle cx="4" cy="4" r="4" fill="#c4a882"/></svg>
-                  </span>
-                </div>
-                <h3 class="sb-product-category">
-                  Slate
-                </h3>
+            <div class="sb-card-right-info">
+              <div class="sb-card-dot">
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="none">
+                    <circle cx="4" cy="4" r="4" fill="#a67666" />
+                  </svg>
+                </span>
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="none">
+                    <circle cx="4" cy="4" r="4" fill="#c4a882" />
+                  </svg>
+                </span>
               </div>
+              <h3 class="sb-product-category sb-pt-1">
+                Slate
+              </h3>
+            </div>
           </div>
+        </div>
+
+        <!-- single card 7 -->
+        <div class="sb-featured-collection-single-card sb-flex sb-flex-col sb-items-start sb-gap-1 group">
+          <div class="sb-card-image sb-w-full sb-relative">
+            <img src="https://picsum.photos/312/416?random=7" alt="" />
+            <!-- add to favourite btn -->
+            <div class="sb-favourite-btns">
+              <button class="sb-add-to-btn-default sb-absolute">
+                <!-- default icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="16" fill="none">
+                  <path stroke="#aeaeae" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                    d="m11.15 13.575-.81.783a1.667 1.667 0 0 1-2.5.015L3.25 9.93C2 8.68.75 7.263.75 5.347a4.583 4.583 0 0 1 7.993-3.064.467.467 0 0 0 .681 0 4.575 4.575 0 0 1 7.993 3.064c0 .42-.062.839-.183 1.241m-5.65 3.342h5m-2.5-2.5v5" />
+                </svg>
+              </button>
+
+              <button class="sb-add-to-btn-hover sb-absolute">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none">
+                  <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                    d="m12.066 16.145-.809.782a1.666 1.666 0 0 1-2.5.016l-4.59-4.444c-1.25-1.25-2.5-2.666-2.5-4.583a4.583 4.583 0 0 1 7.992-3.063.467.467 0 0 0 .682 0 4.575 4.575 0 0 1 7.993 3.063c0 .42-.062.839-.183 1.242m-5.65 3.342h5M15 10v5" />
+                </svg>
+              </button>
+            </div>
           </div>
-           <!-- single card -->
-          <div class="sb-featured-collection-single-card sb-flex sb-flex-dir-col sb-item-start sb-gap-1">
-            <div class="sb-card-image">
-              <img src="https://picsum.photos/312/416?random=7" alt="" />
-              <!-- add to favourite btn -->
-              <div class="sb-add-to-btn">
-                <button>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="19" height="16" fill="none"> <path stroke="#aeaeae" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m11.15 13.575-.81.783a1.667 1.667 0 0 1-2.5.015L3.25 9.93C2 8.68.75 7.263.75 5.347a4.583 4.583 0 0 1 7.993-3.064.467.467 0 0 0 .681 0 4.575 4.575 0 0 1 7.993 3.064c0 .42-.062.839-.183 1.241m-5.65 3.342h5m-2.5-2.5v5"/></svg>
-                </button>
+
+          <div class="sb-card-content sb-w-full sb-flex sb-justify-between">
+            <!-- card left -->
+            <div class="sb-card-left-info">
+              <h2>Handthrown Clay Bowl</h2>
+              <div class="sb-card-price sb-pt-1 sb-flex sb-gap-2">
+                <span class="sb-old-price">$39.00</span>
+                <span class="sb-price">$18.00</span>
               </div>
             </div>
 
-            <div class="sb-card-content">
-              <!-- card left -->
-               <div class="sb-card-left-info">
-                  <h2>Handthrown Clay Bowl</h2>
-                  <div class="sb-card-price">
-                      <span class="price">$49.00</span>
-                      <span class="old-price">$79.00</span>
-                  </div>
-               </div>
-
-              <div class="sb-card-right-info">
-                <div class="sb-card-dot">
-                  <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="none"><circle cx="4" cy="4" r="4" fill="#a67666"/></svg>
-                  </span>
-                  <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="none"><circle cx="4" cy="4" r="4" fill="#c4a882"/></svg>
-                  </span>
-                </div>
-                <h3 class="sb-product-category">
-                  Slate
-                </h3>
+            <div class="sb-card-right-info">
+              <div class="sb-card-dot">
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="none">
+                    <circle cx="4" cy="4" r="4" fill="#a67666" />
+                  </svg>
+                </span>
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="none">
+                    <circle cx="4" cy="4" r="4" fill="#c4a882" />
+                  </svg>
+                </span>
               </div>
+              <h3 class="sb-product-category sb-pt-1">
+                Slate
+              </h3>
+            </div>
           </div>
+        </div>
+
+        <!-- single card 8 -->
+        <div class="sb-featured-collection-single-card sb-flex sb-flex-col sb-items-start sb-gap-1 group">
+          <div class="sb-card-image sb-w-full sb-relative">
+            <img src="https://picsum.photos/312/416?random=8" alt="" />
+            <!-- add to favourite btn -->
+            <div class="sb-favourite-btns">
+              <button class="sb-add-to-btn-default sb-absolute">
+                <!-- default icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="16" fill="none">
+                  <path stroke="#aeaeae" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                    d="m11.15 13.575-.81.783a1.667 1.667 0 0 1-2.5.015L3.25 9.93C2 8.68.75 7.263.75 5.347a4.583 4.583 0 0 1 7.993-3.064.467.467 0 0 0 .681 0 4.575 4.575 0 0 1 7.993 3.064c0 .42-.062.839-.183 1.241m-5.65 3.342h5m-2.5-2.5v5" />
+                </svg>
+              </button>
+
+              <button class="sb-add-to-btn-hover sb-absolute">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none">
+                  <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                    d="m12.066 16.145-.809.782a1.666 1.666 0 0 1-2.5.016l-4.59-4.444c-1.25-1.25-2.5-2.666-2.5-4.583a4.583 4.583 0 0 1 7.992-3.063.467.467 0 0 0 .682 0 4.575 4.575 0 0 1 7.993 3.063c0 .42-.062.839-.183 1.242m-5.65 3.342h5M15 10v5" />
+                </svg>
+              </button>
+            </div>
           </div>
-           <!-- single card -->
-          <div class="sb-featured-collection-single-card sb-flex sb-flex-dir-col sb-item-start sb-gap-1">
-            <div class="sb-card-image">
-              <img src="https://picsum.photos/312/416?random=8" alt="" />
-              <!-- add to favourite btn -->
-              <div class="sb-add-to-btn">
-                <button>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="19" height="16" fill="none"> <path stroke="#aeaeae" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m11.15 13.575-.81.783a1.667 1.667 0 0 1-2.5.015L3.25 9.93C2 8.68.75 7.263.75 5.347a4.583 4.583 0 0 1 7.993-3.064.467.467 0 0 0 .681 0 4.575 4.575 0 0 1 7.993 3.064c0 .42-.062.839-.183 1.241m-5.65 3.342h5m-2.5-2.5v5"/></svg>
-                </button>
+
+          <div class="sb-card-content sb-w-full sb-flex sb-justify-between">
+            <!-- card left -->
+            <div class="sb-card-left-info">
+              <h2>Handthrown Clay Bowl</h2>
+              <div class="sb-card-price sb-pt-1 sb-flex sb-gap-2">
+                <span class="sb-old-price">$39.00</span>
+                <span class="sb-price">$18.00</span>
               </div>
             </div>
 
-            <div class="sb-card-content">
-              <!-- card left -->
-               <div class="sb-card-left-info sb-flex sb-item-start sb-flex-dir-col">
-                  <h2>Handthrown Clay Bowl</h2>
-                  <div class="sb-card-price">
-                      <span class="price">$49.00</span>
-                      <span class="old-price">$79.00</span>
-                  </div>
-               </div>
-
-              <div class="sb-card-right-info sb-flex">
-                <div class="sb-card-dot">
-                  <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="none"><circle cx="4" cy="4" r="4" fill="#a67666"/></svg>
-                  </span>
-                  <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="none"><circle cx="4" cy="4" r="4" fill="#c4a882"/></svg>
-                  </span>
-                </div>
-                <h3 class="sb-product-category">
-                  Slate
-                </h3>
+            <div class="sb-card-right-info">
+              <div class="sb-card-dot">
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="none">
+                    <circle cx="4" cy="4" r="4" fill="#a67666" />
+                  </svg>
+                </span>
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="none">
+                    <circle cx="4" cy="4" r="4" fill="#c4a882" />
+                  </svg>
+                </span>
               </div>
+              <h3 class="sb-product-category sb-pt-1">
+                Slate
+              </h3>
+            </div>
           </div>
-          </div>
+        </div>
       </div>
     </div>
-  </body>
+</body>
+
 </html>
