@@ -59,7 +59,7 @@
     /* ====== grid ======= */
     .sb-grid {
       display: grid;
-      grid-template-columns: repeat(1, 1fr);
+      grid-template-columns: repeat(4, 1fr);
     }
 
     /* ====== full width, height ====== */
@@ -96,7 +96,7 @@
     }
 
     .sb-featured-collection-single-card {
-      /* max-width: 312px; */
+      max-width: 312px;
       width: 100%;
       font-family: "Plus Jakarta Sans", sans-serif;
       font-size: 14px;
@@ -107,7 +107,7 @@
 
     .sb-card-image {
       background: #f0efeb;
-      height: 312px;
+      height: 416px;
       border-radius: 16px;
     }
 
@@ -191,10 +191,6 @@
       transition: 0.3s;
     }
 
-    .sb-flex-wrap {
-      flex-wrap: wrap;
-    }
-
     .sb-slider-handle-arrow-btn {
       top: 50%;
       left: 50%;
@@ -236,37 +232,32 @@
 
     /* ====== responsive ======= */
     /* small tablet */
-    @media (min-width: 500px) {
-      .sb-grid--sm-2 {
-        grid-template-columns: repeat(2, 1fr);
+    @media (max-width: 500px) {
+      .sb-grid {
+        grid-template-columns: repeat(1, 1fr);
       }
+
+      .sb-featured-collection-single-card {
+      max-width: 100%;
+    }
 
       .sb-card-image {
         height: 330px;
       }
-
     }
 
     /* tablet */
-    @media (min-width: 900px) {
-
-      .sb-grid--md-3 {
-        grid-template-columns: repeat(3, 1fr);
+    @media ( ( min-width: 501px ) and ( max-width: 1024px ) ) {
+            .sb-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
-
-      .sb-card-image {
-        height: 380px;
-      }
+      
+      .sb-featured-collection-single-card {
+      max-width: 100%;
     }
 
-    /* desktop */
-    @media (min-width: 1400px) {
-      .sb-grid--lg-4 {
-        grid-template-columns: repeat(4, 1fr);
-      }
-
       .sb-card-image {
-        height: 416px;
+        height: 360px;
       }
     }
   </style>
@@ -275,7 +266,7 @@
 <body>
   <div class="sb-featured-collection-1-wrapper sb-w-full">
     <div class="sb-featured-collection-1-container">
-      <div class="sb-featured-collection-1 sb-grid sb-grid--sm-2 sb-grid--md-3 sb-grid--lg-4 sb-gap-3">
+      <div class="sb-featured-collection-1 sb-grid sb-gap-3">
         <!-- single card 1 -->
         <div class="sb-featured-collection-single-card sb-flex sb-flex-col sb-items-start sb-gap-1 group">
           <div class="sb-card-image sb-relative sb-w-full">
